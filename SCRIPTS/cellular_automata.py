@@ -855,6 +855,8 @@ cells = organism.get_cells()
 
 # A decision, to follow the path of life or let it fade into stillness.
 if run_cellular_automata:
-    
+
     # The dance of life unfolds, a cellular symphony of creation and decay.
     cells = organism.cellular_automata()
+    
+    
