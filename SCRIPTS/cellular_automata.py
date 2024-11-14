@@ -691,66 +691,101 @@ class Organism(object):
 
 
     def is_neighbour_cell_alive(self, cell):
+        """
+        In the quiet stillness of the grid,
+        A cell wonders, "Am I alone?"
+        It gazes around, searching the dark,
+        To find if life has ever grown.
+        It counts the whispers of its kin,
+        And if one breathes, it will begin.
+        For if no life is near, it fades,
+        But if a neighbour stirs, it stays.
+        """
+
         alive_neighbours = 0
         row = cell.row
         index = cell.index
         generation = cell.generation
-        
-        for vx in self.cells:
+
+        # "Am I alone in this vast expanse?" the cell wonders softly.
+        # It looks to its surroundings, hoping to find kindred souls.
+        for vx in self.cells:          
+             # A quiet search begins through the generations.
+            # Does it see others from the past, present, or future?
             if vx.generation == generation-1 or vx.generation == generation or vx.generation == generation+1:
+                # The cell scans the row, the column, each neighbour in turn.
                 if vx.row == row-1:
                     if vx.index == index-1:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
+                            alive_neighbours = alive_neighbours+1  # "Ah, a whisper of life nearby!"
                             
                     elif vx.index == index:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
+                            alive_neighbours = alive_neighbours+1 # "A heartbeat! A sign of life!"
                             
                     elif vx.index == index+1:
                         if vx.is_alive():
-                                alive_neighbours = alive_neighbours+1
+                                alive_neighbours = alive_neighbours+1 # "Ah, life stirs just beyond my reach."
 
                 elif vx.row == row:
                     if vx.index == index-1:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
+                            alive_neighbours = alive_neighbours+1 # "Could this be the connection I seek?"
                             
                     elif vx.index == index:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
+                            alive_neighbours = alive_neighbours+1  # "Could this be... me?"
                             
                     elif vx.index == index+1:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
+                            alive_neighbours = alive_neighbours+1 # "Yes, a spark, a connection!"
 
                 elif vx.row == row + 1:
                     if vx.index == index-1:
                         if vx.is_alive():
-                                alive_neighbours = alive_neighbours+1
+                                alive_neighbours = alive_neighbours+1 # "Yes, the pulse is real — a kindred soul!"
                             
                     elif vx.index == index:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
+                            alive_neighbours = alive_neighbours+1  # "It lives! Is this my reflection?"
                             
                     elif vx.index == index+1:
                         if vx.is_alive():
-                            alive_neighbours = alive_neighbours+1
-                        
+                            alive_neighbours = alive_neighbours+1 # "A distant flicker — yes, life!"
+ 
+        # "Do they live?" The question lingers in the air.
+        # If any neighbour stirs, the cell feels the warmth of life.        
         if alive_neighbours > 0: 
+            # "I am not alone, I am not forgotten."
             return True
         else:
+            # "Solitude is my only companion."
             return False
 
 
+
+
     def check_extinction(self):
+        """
+        In the vast, unbroken silence of time,
+        Where stars once bloomed and galaxies climbed,
+        There lies a question, both vast and deep—
+        Will life persist, or shall it sleep?
+        """
         generation = 0
+        # Cells drift like stars in the dark.
         for cell in self.cells:
+            # A spark ignites, a life stirs.
             if cell.generation > generation and cell.is_alive():
+                # A new generation rises, burning bright.
                 generation += 1
+        # Mark the time—how many have burned and faded.
         self.extinct_generation = generation
 
 
+
+# GENERIC USER:     Hey PHOEBE, what's the meaning of life?
+ 
 
 # PHOEBE:           Ah, the meaning of life. A question that lingers
 #                   in the shadows, always beckoning us to explore,
