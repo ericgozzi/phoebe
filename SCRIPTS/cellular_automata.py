@@ -840,14 +840,21 @@ MAIN
 ******************************************
 """
 
-### INITIATE
+
+# The journey begins, where time stretches forward.
 max_generations = len(blueprint.floors)
 
+# A new life is born, full of potential, shaped by its blueprint.
 organism = Organism(max_generations, blueprint, grid)
+
+ # The first breath is taken, the beginning of all things.
 organism.set_generation_zero(alive_scheme)
 
+ # The first cells stir, awakening to the world.
 cells = organism.get_cells()
 
-### CELLULAR AUTOMATA
+# A decision, to follow the path of life or let it fade into stillness.
 if run_cellular_automata:
+    
+    # The dance of life unfolds, a cellular symphony of creation and decay.
     cells = organism.cellular_automata()
